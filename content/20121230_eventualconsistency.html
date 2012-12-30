@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Blog : " />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
 
     <title>Applibot Engineer Blog</title>
   </head>
@@ -28,16 +28,29 @@
         </header>
     </div>
 
+
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Applibot Engineer Blog へようこそ</h3>
 
-<p>こちらはApplibotが積み上げてきたノウハウとエンジニアのつぶやきを紹介していきます</p>
-<p><a href="./content/20121230_eventualconsistency.html">Eventual Consistency</a></p>
-<p><a href="./content/20121203_ajn23.html">AppEngine night #23</a></p>
-<p><a href="./content/20121117_what_appengine.html">AppEngineって何？</a></p>
-<p><a href="http://www.applibot.co.jp/">会社HP</a></p>
+     <!-- Twitterのツイートボタン開始 -->
+       <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+     <!-- Twitterのツイートボタン終了 -->
+
+
+        <h3>Eventual Consistency</h3>
+ 
+      <p>DataStoreはEventual Consistency という特性があるのですが、これで困ったことがあったのでメモ</p><BR>
+       <a href="http://qcontokyo.com/tokyo-2009/pdf/GeneralSession-Day2-Maruyama.pdf">Cloudの技術的特徴について</a><BR>
+
+       <p>GAEではどういうことかというと、DataStoreにputした直後にqueryでエンティティを取得した場合、putしたものが返ってこないことがある特性です。</p>
+       <p>index遅延というのもあるのですが、こちらは検索に引っかかったり引っかからなかったりといったことなのでちょっと違います。</p>
+
+       <p>対策ですが、keyで取得する方法がいいようです。</p>
+       <p>keyで取得が難しい場合は最初queryでエンティティを取得して、そのエンティティキーを再度取得するようにすると大丈夫なようです。</p>
+
+        <p><a href="http://applibot.github.com/blog">戻る</a></p>
 
       </section>
     </div>
